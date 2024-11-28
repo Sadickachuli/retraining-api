@@ -1,9 +1,9 @@
-# RecycleWiser API
+# RecycleWiser APP
 
 ## Project Description
-**RecycleWiser** is a project aimed at automating the classification of water quality and potability using machine learning models. The project consists of two primary components:
-1. **Image Prediction API** – An API that uses trained models to predict water quality based on input images.
-2. **Model Retraining API** – An API for retraining the water quality model with new data to improve prediction accuracy and adapt to new conditions.
+**RecycleWiser** is a project aimed at automating the classification of waste using machine learning models. The project consists of two primary components:
+1. **Image Prediction API** – An API that uses trained models to predict waste into either recyclable or non-recyclable based on input images.
+2. **Model Retraining API** – An API for retraining the water quality model with new data to improve prediction accuracy and adapt to new conditions.(model for waste classification is pretty huge to deploy on render so I used this model instead)
 
 The project is designed to be deployed on cloud platforms and enables real-time predictions and the ability to retrain the model when needed.
 
@@ -11,7 +11,7 @@ The project is designed to be deployed on cloud platforms and enables real-time 
 - **Image Prediction API**: [https://recyclewiser-api.onrender.com/](https://recyclewiser-api.onrender.com/)
 - **Model Retraining API**: [https://wt-model-api.onrender.com/](https://wt-model-api.onrender.com/)
 
-These APIs can be used to interact with the water quality models for prediction and retraining purposes.
+These APIs can be used to interact with the waste classification model for prediction and water quality model for retraining purposes.
 
 ## Project Setup
 
@@ -85,3 +85,19 @@ uvicorn main:app --host 0.0.0.0 --port 8000
                                       ![trash7](https://github.com/user-attachments/assets/bf362575-32a0-428d-a0e4-f5c1c906027e)
 
 
+### Model Retraining Endpoint
+#### URL: https://wt-model-api.onrender.com/
+- Method: POST
+- Description: This endpoint allows retraining of the water quality model with new data. This is unrelated to image prediction and focuses on updating the model to enhance its predictive performance.
+
+## Loading a Docker Image
+- To load the Docker image on another system, use:
+```bash
+docker load -i waste-classifier-app.tar
+```
+
+## Troubleshooting
+Docker Desktop Not Running: Ensure Docker Desktop is active before running the docker-compose commands.
+API Connectivity Issues: Check for any network restrictions or firewall settings that may block access to the API endpoints.
+
+### A Docker image is located at the root of the project.
