@@ -35,5 +35,46 @@ Navigate to the Project Directory: Make sure you are in the root directory of th
 
 Build and Run the Containers: Use Docker Compose to build and start both the frontend and backend services:
 
-//bash
+```bash
 docker-compose up --build
+```
+This will build the frontend and backend images according to the Dockerfile definitions and start the services. The frontend will be accessible at http://localhost:3000/, and the backend at http://localhost:8000/.
+
+#### Option 2: Running the Frontend Locally with npm start
+##### 1. Navigate to the Frontend Directory:
+```bash
+cd frontend
+```
+##### 2. Install Dependencies: Run the following command to install the necessary Node.js dependencies:
+```bash
+npm install
+```
+##### 3. Start the Frontend: Run the command below to start the frontend server:
+```bash
+npm start
+```
+The frontend will now be accessible at http://localhost:3000/.
+
+##### 4. Run the Backend: If you prefer running the backend separately, navigate to the backend directory and install the Python dependencies:
+```bash
+cd ../backend
+pip install -r requirements.txt
+```
+##### 5. Start the backend server with:
+```bash
+uvicorn main:app --host 0.0.0.0 --port 8000
+```
+### API Endpoints
+#### Image Prediction Endpoint
+- URL: https://recyclewiser-api.onrender.com/
+- Method: POST
+- Description: This endpoint accepts image data for waste classification. It returns a prediction of either recyclable or non-recyclable depending on the input image.
+### Sample images:
+- Cardboard: ![cardboard1](https://github.com/user-attachments/assets/ed023837-8ecf-403f-aa7c-0ef7c5125593)
+- Glass: ![glass1](https://github.com/user-attachments/assets/221162c8-bda8-4265-a748-930b99c66653)
+- Metal: ![metal2](https://github.com/user-attachments/assets/2405f825-077a-48e9-be56-898cf9c5732b)
+- Paper:![paper1](https://github.com/user-attachments/assets/64149dfc-900f-49e2-8e80-22fe6f4d4951)
+- Plastic:![plastic1](https://github.com/user-attachments/assets/1e94e852-2f85-4d40-8295-c62a94428b42)
+- Trash: ![trash7](https://github.com/user-attachments/assets/bf362575-32a0-428d-a0e4-f5c1c906027e)
+
+
