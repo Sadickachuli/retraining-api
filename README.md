@@ -30,7 +30,7 @@ Ensure you have the following installed on your local machine:
 # Clone the Repository (optional)
 git clone https://github.com/your-username/recyclewiser-app.git
 cd recyclewiser-app
-
+```
 Navigate to the Project Directory: Make sure you are in the root directory of the project, where docker-compose.yml is located.
 
 Build and Run the Containers: Use Docker Compose to build and start both the frontend and backend services:
