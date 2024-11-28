@@ -70,17 +70,18 @@ uvicorn main:app --host 0.0.0.0 --port 8000
 - Method: POST
 - Description: This endpoint accepts image data for waste classification. It returns a prediction of either recyclable or non-recyclable depending on the input image.
 ### Sample images:
+
 - **Cardboard:**
-  ![cardboard1](https://github.com/user-attachments/assets/ed023837-8ecf-403f-aa7c-0ef7c5125593)
+                                      ![cardboard1](https://github.com/user-attachments/assets/ed023837-8ecf-403f-aa7c-0ef7c5125593)
 - **Glass:**
-  ![glass1](https://github.com/user-attachments/assets/221162c8-bda8-4265-a748-930b99c66653)
+                                      ![glass1](https://github.com/user-attachments/assets/221162c8-bda8-4265-a748-930b99c66653)
 - **Metal:**
-  ![metal2](https://github.com/user-attachments/assets/2405f825-077a-48e9-be56-898cf9c5732b)
+                                      ![metal2](https://github.com/user-attachments/assets/2405f825-077a-48e9-be56-898cf9c5732b)
 - **Paper:**
-  ![paper1](https://github.com/user-attachments/assets/64149dfc-900f-49e2-8e80-22fe6f4d4951)
+                                      ![paper1](https://github.com/user-attachments/assets/64149dfc-900f-49e2-8e80-22fe6f4d4951)
 - **Plastic:**
-  ![plastic1](https://github.com/user-attachments/assets/1e94e852-2f85-4d40-8295-c62a94428b42)
+                                      ![plastic1](https://github.com/user-attachments/assets/1e94e852-2f85-4d40-8295-c62a94428b42)
 - **Trash:**
-- ![trash7](https://github.com/user-attachments/assets/bf362575-32a0-428d-a0e4-f5c1c906027e)
+                                      ![trash7](https://github.com/user-attachments/assets/bf362575-32a0-428d-a0e4-f5c1c906027e)
 
 
