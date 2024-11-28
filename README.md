@@ -4,7 +4,9 @@
 ## Project Description
 **RecycleWise** is a project aimed at automating the classification of waste using machine learning model. The project consists of two primary components:
 1. **Image Prediction API** – An API that uses a trained model to predict waste into either recyclable or non-recyclable based on input images.
-2. **Model Retraining API** – An API for retraining a water quality model with new data to improve prediction accuracy and adapt to new conditions.(model for waste classification is pretty huge to deploy on render so I used this model instead)
+2. **Model Retraining API** – An API for retraining a water quality model with new data to improve prediction accuracy and adapt to new conditions.
+## Explanation for using a different model for retraining:
+For my *Image prediction API*, I converted my original .keras model to a TensorFlow Lite model, as it is lightweight and works seamlessly within Render's 512MB memory limit. However, retraining the model was an issue due to the fact that retraining requires the original .keras model, as TensorFlow Lite models are not designed for retraining. Also, adding the .keras model to the deployment exceeded Render's free-tier memory limit (512MB), resulting in an "Out of Memory" error during runtime. I had to improvise by using a lighter model.
 
 The project is designed to be deployed on cloud platforms and enables real-time predictions and the ability to retrain the model when needed.
 
