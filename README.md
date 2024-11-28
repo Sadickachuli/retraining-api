@@ -1,4 +1,5 @@
 # RecycleWiser APP
+![28 11 2024_17 55 09_REC](https://github.com/user-attachments/assets/a78fe8aa-e651-498b-8e0e-d581b3e2b50f)
 
 ## Project Description
 **RecycleWiser** is a project aimed at automating the classification of waste using machine learning models. The project consists of two primary components:
