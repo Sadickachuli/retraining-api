@@ -1,10 +1,10 @@
-# RecycleWiser APP
+# RecycleWise APP
 ![28 11 2024_17 55 09_REC](https://github.com/user-attachments/assets/a78fe8aa-e651-498b-8e0e-d581b3e2b50f)
 
 ## Project Description
-**RecycleWiser** is a project aimed at automating the classification of waste using machine learning models. The project consists of two primary components:
-1. **Image Prediction API** – An API that uses trained models to predict waste into either recyclable or non-recyclable based on input images.
-2. **Model Retraining API** – An API for retraining the water quality model with new data to improve prediction accuracy and adapt to new conditions.(model for waste classification is pretty huge to deploy on render so I used this model instead)
+**RecycleWise** is a project aimed at automating the classification of waste using machine learning model. The project consists of two primary components:
+1. **Image Prediction API** – An API that uses a trained model to predict waste into either recyclable or non-recyclable based on input images.
+2. **Model Retraining API** – An API for retraining a water quality model with new data to improve prediction accuracy and adapt to new conditions.(model for waste classification is pretty huge to deploy on render so I used this model instead)
 
 The project is designed to be deployed on cloud platforms and enables real-time predictions and the ability to retrain the model when needed.
 
