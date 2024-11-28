@@ -1,51 +1,64 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import HomePage from './components/HomePage';
+import PredictionPage from './components/PredictionPage';
+import { AppBar, Toolbar, Typography, Button } from '@mui/material';
 
 function App() {
-    const [image, setImage] = useState(null);
-    const [prediction, setPrediction] = useState(null);
-    const [isLoading, setIsLoading] = useState(false);
-
-    const handleImageChange = (e) => {
-        setImage(e.target.files[0]);
-    };
-
-    const handleSubmit = async () => {
-        if (image) {
-            const formData = new FormData();
-            formData.append('file', image);
-            setIsLoading(true);
-
-            try {
-                const response = await axios.post('http://localhost:8000/predict/', formData, {
-                    headers: { 'Content-Type': 'multipart/form-data' },
-                });
-                setPrediction(response.data);
-            } catch (error) {
-                console.error('Error:', error);
-            } finally {
-                setIsLoading(false);
-            }
-        } else {
-            alert('Please select an image.');
-        }
-    };
-
     return (
-        <div>
-            <h1>Waste Classifier</h1>
-            <input type="file" onChange={handleImageChange} />
-            <button onClick={handleSubmit} disabled={isLoading}>
-                {isLoading ? 'Classifying...' : 'Classify'}
-            </button>
-            {prediction && (
-                <div>
-                    <h2>Prediction Result</h2>
-                    <p>Class: {prediction.predicted_label}</p>
-                    <p>Category: {prediction.category}</p>
-                </div>
-            )}
-        </div>
+        <Router>
+            {/* Transparent AppBar */}
+            <AppBar position="static" style={{ color: 'white', backgroundColor: 'transparent', border: '1px solid #4CAF50', boxShadow: 'none' }}>
+  <Toolbar>
+  <Typography
+      variant="h6"
+      style={{
+        flexGrow: 1,
+        color: '#4CAF50',
+        fontWeight: 'bold',
+      }}
+    >
+      RecycleWise
+    </Typography>
+    <Button
+      color="inherit"
+      component={Link}
+      to="/"
+      style={{
+        backgroundColor: 'transparent',
+        color: '#4CAF50',
+        border: '2px solid #4CAF50',
+        borderRadius: '20px', 
+        padding: '6px 16px', 
+        marginRight: '16px',
+      }}
+    >
+      Home
+    </Button>
+    <Button
+      color="inherit"
+      component={Link}
+      to="/predict"
+      style={{
+        backgroundColor: 'transparent',
+        color: '#4CAF50', 
+        border: '2px solid #4CAF50',
+        borderRadius: '20px',
+        padding: '6px 16px',
+         marginRight: '16px',
+      }}
+    >
+      Prediction
+    </Button>
+  </Toolbar>
+</AppBar>
+
+
+            <Routes>
+                <Route path="/" element={<HomePage />} />
+                <Route path="/predict" element={<PredictionPage />} />
+            </Routes>
+        </Router>
     );
 }
 
