@@ -104,3 +104,7 @@ Docker Desktop Not Running: Ensure Docker Desktop is active before running the d
 API Connectivity Issues: Check for any network restrictions or firewall settings that may block access to the API endpoints.
 
 ### A Docker image is located at the root of the project.
+
+### Results from Flood Request Simulation [LOCUST]
+
+![29 11 2024_17 54 13_REC](https://github.com/user-attachments/assets/d7771605-c173-4a1d-87f5-db8daa3e7c8e)
