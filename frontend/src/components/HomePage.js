@@ -24,8 +24,8 @@ function HomePage() {
     variant="h3"
     gutterBottom
     sx={{
-        color: 'black',
-        textShadow: '0 0 5px #FFFFFF, 0 0 10px #FFFFFF, 0 0 20px #4CAF50',
+        color: '#ffffff',
+        
     }}
 >
     Welcome to RecycleWise!
@@ -34,7 +34,7 @@ function HomePage() {
     variant="h6"
     gutterBottom
     sx={{
-        color: 'white',  
+        color: '#ffffff',  
     }}
 >
     A web application to help you classify waste into recyclable and non-recyclable categories.
@@ -44,8 +44,8 @@ function HomePage() {
                     variant="contained"
                     style={{ 
                         backgroundColor: 'black',  
-                        color: '#4CAF50',  
-                         border: '2px solid #4CAF50', 
+                        color: '#ffffff',  
+                         border: '2px solid #ffffff', 
                          borderRadius: '20px', 
                         padding: '6px 16px',  
                     }}
