@@ -94,7 +94,7 @@ uvicorn main:app --host 0.0.0.0 --port 8000
 - Description: This endpoint allows retraining of the water quality model with new data. This is unrelated to image prediction and focuses on updating the model to enhance its predictive performance.
 
 ## Loading a Docker Image
-- To load the Docker image on another system, use:
+- To load the Docker image on your system, use:
 ```bash
 docker load -i waste-classifier-app.tar
 ```
