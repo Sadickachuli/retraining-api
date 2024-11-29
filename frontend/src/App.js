@@ -2,8 +2,9 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import HomePage from './components/HomePage';
 import PredictionPage from './components/PredictionPage';
-import RetrainingPage from './components/RetrainingPage'; // Import the new page
-import { AppBar, Toolbar, Typography, Button } from '@mui/material';
+import RetrainingPage from './components/RetrainingPage';
+import { AppBar, Toolbar, Box, Button } from '@mui/material';
+import logo from '../src/assets/logo.png';
 
 function App() {
     return (
@@ -19,60 +20,74 @@ function App() {
                 }}
             >
                 <Toolbar>
-                    <Typography
-                        variant="h6"
-                        style={{
-                            flexGrow: 1,
-                            color: '#4CAF50',
-                            fontWeight: 'bold',
+                    {/* Flex container for logo and buttons */}
+                    <Box
+                        sx={{
+                            display: 'flex',
+                            justifyContent: 'space-between',
+                            alignItems: 'center',
+                            width: '100%',
                         }}
                     >
-                        RecycleWise
-                    </Typography>
-                    <Button
-                        color="inherit"
-                        component={Link}
-                        to="/"
-                        style={{
-                            backgroundColor: 'transparent',
-                            color: '#4CAF50',
-                            border: '2px solid #4CAF50',
-                            borderRadius: '20px',
-                            padding: '6px 16px',
-                            marginRight: '16px',
-                        }}
-                    >
-                        Home
-                    </Button>
-                    <Button
-                        color="inherit"
-                        component={Link}
-                        to="/predict"
-                        style={{
-                            backgroundColor: 'transparent',
-                            color: '#4CAF50',
-                            border: '2px solid #4CAF50',
-                            borderRadius: '20px',
-                            padding: '6px 16px',
-                            marginRight: '16px',
-                        }}
-                    >
-                        Prediction
-                    </Button>
-                    <Button
-                        color="inherit"
-                        component={Link}
-                        to="/retrain"
-                        style={{
-                            backgroundColor: 'transparent',
-                            color: '#4CAF50',
-                            border: '2px solid #4CAF50',
-                            borderRadius: '20px',
-                            padding: '6px 16px',
-                        }}
-                    >
-                        Retrain Model
-                    </Button>
+                        {/* Logo on the left */}
+                        <Box
+                            component="img"
+                            src={logo}
+                            alt="RecycleWise Logo"
+                            sx={{
+                                maxWidth: '100px', 
+                                height: '90px',
+                            }}
+                        />
+
+                        {/* Buttons on the right */}
+                        <Box>
+                            <Button
+                                color="inherit"
+                                component={Link}
+                                to="/"
+                                style={{
+                                    backgroundColor: 'transparent',
+                                    color: '#4CAF50',
+                                    border: '2px solid #4CAF50',
+                                    borderRadius: '20px',
+                                    padding: '6px 16px',
+                                    marginRight: '16px',
+                                }}
+                            >
+                                Home
+                            </Button>
+                            <Button
+                                color="inherit"
+                                component={Link}
+                                to="/predict"
+                                style={{
+                                    backgroundColor: 'transparent',
+                                    color: '#4CAF50',
+                                    border: '2px solid #4CAF50',
+                                    borderRadius: '20px',
+                                    padding: '6px 16px',
+                                    marginRight: '16px',
+                                }}
+                            >
+                                Prediction
+                            </Button>
+                            <Button
+                                color="inherit"
+                                component={Link}
+                                to="/retrain"
+                                style={{
+                                    backgroundColor: 'transparent',
+                                    color: '#4CAF50',
+                                    border: '2px solid #4CAF50',
+                                    borderRadius: '20px',
+                                    padding: '6px 16px',
+                                }}
+                            >
+                                Retrain Model
+                            </Button>
+                        </Box>
+                    </Box>
                 </Toolbar>
             </AppBar>
 

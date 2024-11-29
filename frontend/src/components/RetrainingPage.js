@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { Container, Typography, Button, CircularProgress } from '@mui/material';
+import { Container, Typography, Button, CircularProgress, Box } from '@mui/material';
 
 function RetrainingPage() {
     const [dataset, setDataset] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
     const [message, setMessage] = useState('');
-    const [modelAvailable, setModelAvailable] = useState(false);  // To track if model is available for download
-    const [modelUrl, setModelUrl] = useState('');  // To store the model download link
+    const [modelAvailable, setModelAvailable] = useState(false);
+    const [modelUrl, setModelUrl] = useState('');
 
     const handleDatasetChange = (e) => {
         setDataset(e.target.files[0]);
@@ -26,7 +26,6 @@ function RetrainingPage() {
 
                 if (response.status === 200) {
                     setMessage('Retraining triggered successfully. Wait for the model to be ready!');
-                    // Wait for the retraining to complete and model to be ready
                     checkModelAvailability();
                 } else {
                     setMessage('Retraining failed. Please try again.');
@@ -42,7 +41,6 @@ function RetrainingPage() {
         }
     };
 
-    // Function to check if the retrained model is available
     const checkModelAvailability = async () => {
         try {
             const modelBlob = await axios.get('https://wt-model-api.onrender.com/model', {
@@ -101,17 +99,18 @@ function RetrainingPage() {
             <Typography variant="body1" style={{ marginBottom: '20px', color: '#555' }}>
                 Upload a new dataset to improve the waste classification model.
             </Typography>
-            <input
+            <Box
+                component="input"
                 type="file"
                 onChange={handleDatasetChange}
-                style={{
+                sx={{
                     marginBottom: '20px',
                     padding: '10px',
                     borderRadius: '8px',
                     border: '2px solid #4CAF50',
+                    outline: 'none',
                 }}
             />
-            <br />
             <Button
                 variant="contained"
                 style={{
@@ -139,7 +138,6 @@ function RetrainingPage() {
                 </Typography>
             )}
 
-            {/* Show download button if the model is available */}
             {modelAvailable && (
                 <Button
                     variant="contained"

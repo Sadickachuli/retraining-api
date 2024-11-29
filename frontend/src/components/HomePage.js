@@ -8,7 +8,7 @@ function HomePage() {
         <Container
             style={{
         textAlign: 'center',
-        background: 'linear-gradient(135deg, #ffffff 30%, #4CAF50 70%)', 
+        background: 'linear-gradient(135deg, #000000 30%, #4CAF50 70%)', 
         minHeight: '90vh',  
         minWidth: '100vw',
         display: 'flex',
@@ -20,16 +20,30 @@ function HomePage() {
         >
             {/* Left section with text */}
             <div style={{ flex: 1 }}>
-                <Typography variant="h3" gutterBottom>
-                    Welcome to RecycleWise!
-                </Typography>
-                <Typography variant="h6" gutterBottom>
-                    A web application to help you classify waste into recyclable and non-recyclable categories.
-                </Typography>
+            <Typography
+    variant="h3"
+    gutterBottom
+    sx={{
+        color: 'black',
+        textShadow: '0 0 5px #FFFFFF, 0 0 10px #FFFFFF, 0 0 20px #4CAF50',
+    }}
+>
+    Welcome to RecycleWise!
+</Typography>
+<Typography
+    variant="h6"
+    gutterBottom
+    sx={{
+        color: 'white',  
+    }}
+>
+    A web application to help you classify waste into recyclable and non-recyclable categories.
+</Typography>
+
                 <Button
                     variant="contained"
                     style={{ 
-                        backgroundColor: 'white',  
+                        backgroundColor: 'black',  
                         color: '#4CAF50',  
                          border: '2px solid #4CAF50', 
                          borderRadius: '20px', 
