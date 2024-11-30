@@ -6,8 +6,7 @@ function RetrainingPage() {
     const [dataset, setDataset] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
     const [message, setMessage] = useState('');
-    const [modelAvailable, setModelAvailable] = useState(false);
-    const [modelUrl, setModelUrl] = useState('');
+    const [metrics, setMetrics] = useState(null);
 
     const handleDatasetChange = (e) => {
         setDataset(e.target.files[0]);
@@ -18,6 +17,7 @@ function RetrainingPage() {
             const formData = new FormData();
             formData.append('file', dataset);
             setIsLoading(true);
+            setMetrics(null);
 
             try {
                 const response = await axios.post('https://wt-model-api.onrender.com/retrain', formData, {
@@ -25,8 +25,8 @@ function RetrainingPage() {
                 });
 
                 if (response.status === 200) {
-                    setMessage('Retraining triggered successfully. Wait for the model to be ready!');
-                    checkModelAvailability();
+                    setMessage('Retraining completed successfully!');
+                    setMetrics(response.data);
                 } else {
                     setMessage('Retraining failed. Please try again.');
                 }
@@ -39,37 +39,6 @@ function RetrainingPage() {
         } else {
             alert('Please upload a dataset.');
         }
-    };
-
-    const checkModelAvailability = async () => {
-        try {
-            const modelBlob = await axios.get('https://wt-model-api.onrender.com/model', {
-                responseType: 'blob',
-            });
-
-            if (modelBlob && modelBlob.data) {
-                const url = window.URL.createObjectURL(new Blob([modelBlob.data]));
-                setModelUrl(url);
-                setModelAvailable(true);
-                setMessage('The model is ready for download!');
-            } else {
-                setModelAvailable(false);
-                setMessage('Model is not available yet. Please try again later.');
-            }
-        } catch (error) {
-            console.error('Error downloading the model:', error);
-            setModelAvailable(false);
-            setMessage('Error downloading the model. Please try again later.');
-        }
-    };
-
-    const handleDownload = () => {
-        const link = document.createElement('a');
-        link.href = modelUrl;
-        link.setAttribute('download', 'new_model.h5');
-        document.body.appendChild(link);
-        link.click();
-        link.remove();
     };
 
     return (
@@ -95,9 +64,6 @@ function RetrainingPage() {
                 }}
             >
                 Retrain the Waste Classifier Model
-            </Typography>
-            <Typography variant="body1" style={{ marginBottom: '20px', color: '#555' }}>
-                Upload a new dataset to improve the waste classification model.
             </Typography>
             <Box
                 component="input"
@@ -138,21 +104,12 @@ function RetrainingPage() {
                 </Typography>
             )}
 
-            {modelAvailable && (
-                <Button
-                    variant="contained"
-                    color="primary"
-                    onClick={handleDownload}
-                    style={{
-                        marginTop: '20px',
-                        backgroundColor: '#4CAF50',
-                        color: 'white',
-                        borderRadius: '20px',
-                        padding: '10px 20px',
-                    }}
-                >
-                    Download the Retrained Model
-                </Button>
+            {metrics && (
+                <Box mt={4}>
+                    <Typography variant="h6">Model Metrics:</Typography>
+                    <Typography>Accuracy: {metrics.accuracy.toFixed(4)}</Typography>
+                    <Typography>Loss: {metrics.loss.toFixed(4)}</Typography>
+                </Box>
             )}
         </Container>
     );
