@@ -1,6 +1,9 @@
 # RecycleWise APP
 ![28 11 2024_17 55 09_REC](https://github.com/user-attachments/assets/a78fe8aa-e651-498b-8e0e-d581b3e2b50f)
 
+## Link to Youtube video:
+https://youtu.be/TWie5Q70CJo?si=KGxgHtHUfqIA0zxu
+
 ## Project Description
 **RecycleWise** is a project aimed at automating the classification of waste using machine learning model. The project consists of two primary components:
 1. **Image Prediction API** – An API that uses a trained model to predict waste into either recyclable or non-recyclable based on input images.
