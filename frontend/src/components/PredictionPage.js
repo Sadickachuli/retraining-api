@@ -18,7 +18,8 @@ function PredictionPage() {
             setIsLoading(true);
 
             try {
-                const response = await axios.post('http://localhost:8000/predict/', formData, {
+                // Update the backend URL to your live deployment
+                const response = await axios.post('https://recyclewise-backend.onrender.com/predict/', formData, {
                     headers: { 'Content-Type': 'multipart/form-data' },
                 });
                 setPrediction(response.data);
